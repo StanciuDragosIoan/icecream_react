@@ -1,4 +1,6 @@
 
+################################Day 1
+
 ###create collection and cluster
 
 -created a collection : icecream
@@ -104,7 +106,7 @@ keep from video 31 (from dependency installation redux/redux thunk/ etc... see i
 
 
 
-
+##############
 
 
 Further improvements: 
