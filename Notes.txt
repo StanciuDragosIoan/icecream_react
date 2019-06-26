@@ -1,0 +1,24 @@
+-created a cluster : icecream
+-created a cluster: icevendor
+-added user to the cluster (user: icecream123 password: icecream123)
+-whitelisted ip address (current IP only: 188.27.170.104) + also allowed access from anywhere (in case they will want to connect and check my DB)
+
+
+-created .gitignore file and added node_modules to it;
+-initialized empty git repo;
+-initialized a package.json (npm init);
+-installed regular dependencies (express and mongoose);
+-installed dev dependencies (npm i -D nodemon concurrently)
+*
+nodemon (watch server so we don t refresh when we make a change)
+concurrently (run front end and bk end at same time on 2 ports)
+
+-created the server.js file (which had been set up as entry point for the package.json file -for the backend)
+-created custom npm scripts in package.json (the 'start' and the 'server' script in scripts {});
+-run #npm run server;
+-opened postman and made a GET request to http://localhost:5000 and we get the good response;
+
+
+
+-created a new react app in 'client'
+-CD client and started dev server (npm start)
