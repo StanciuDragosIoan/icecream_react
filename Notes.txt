@@ -1,24 +1,112 @@
--created a cluster : icecream
+
+###create collection and cluster
+
+-created a collection : icecream
 -created a cluster: icevendor
 -added user to the cluster (user: icecream123 password: icecream123)
 -whitelisted ip address (current IP only: 188.27.170.104) + also allowed access from anywhere (in case they will want to connect and check my DB)
 
-
+###installed dependencies and set up express server for the backend
 -created .gitignore file and added node_modules to it;
 -initialized empty git repo;
 -initialized a package.json (npm init);
--installed regular dependencies (express and mongoose);
+-installed regular dependencies (express and mongoose + config + express-validator);
 -installed dev dependencies (npm i -D nodemon concurrently)
 *
 nodemon (watch server so we don t refresh when we make a change)
+config (allows us to define global variables and use them throughout app ->used with mongodb here);
 concurrently (run front end and bk end at same time on 2 ports)
+express-validator (for input validation)
 
 -created the server.js file (which had been set up as entry point for the package.json file -for the backend)
 -created custom npm scripts in package.json (the 'start' and the 'server' script in scripts {});
 -run #npm run server;
 -opened postman and made a GET request to http://localhost:5000 and we get the good response;
+-in 'config' created a file called 
+-created a 'db.js' file inside the 'config' directory (we'll do the mongoDB connection here);
+
+###connected to DB
+-copied the connection string from mongodb account;
+-created a folder called 'config' in the root directory of the app;
+-created a 'default.json' file inside the config directory;
+-set up the mongoURI in the default.JSON
+-created a db.js file in which we connected to the mongoDB using mongoose and the mongoURI
+-opened server.js (imported connectDB) and called it
+-ran #npm run server to start the mongoDB server;
 
 
 
--created a new react app in 'client'
--CD client and started dev server (npm start)
+###create the API Routes
+-will have a single route 'icecream.js' -->will display only quantity and price (could handle adding new icecream items to the 
+store);
+-in the 'API' folder created icecream.js (will handle fetching all the icecream items from the database);
+-in the icecream.js import express;
+-defined the route in the file
+-in server.js we defined the routes;
+-tested the API ice cream route with a get request at : http://localhost:5000/api/icecream (and it works);
+
+
+
+###create the icecream model
+-created a new folder 'models' in the root;
+-created an Icecream.js file in it (capital I);
+-set up the icecream schema with the following:
+
+*flavour (string)
+*price (number)
+*description (string)
+*quantity (string)
+*date (date)
+
+
+*bonus add picture if time allows (if not, note it down as future improvement);
+-created a folder called 'routes' in the root and another folder called 'api' inside of it; 
+-made POST request to the API url (http://localhost:5000/api/icecream) with a content-type header of app/json and a raw JSON body (choose raw in postman);
+-implemented validation with express-validator
+
+
+###made the request and the payload body validation (POST request to DB to add new icecream item)
+-created a POST request in the icecream.js file (in the API routes)
+-tested validation with postman (made post request with full/correcty data body and with missing params)
+
+
+ 
+####implemented the 'add new icecream' logic (see icecream.js file in 'api' lines 42-61
+-checked for errors, if no errors, search for icecream item by flavour (if it exists, return error);
+-if icecream item does not exist, put it in a new instance object and save it to DB
+-tested it with POST request at (http://localhost:5000/api/icecream) in postman and this time it saved the icecream in the DB (Success!!!)
+*also tried to add a 2nd item again and it did not allow us (criterion for item to be unique is the flavour)
+
+
+NOTE! if you need to modify the get route so we can fetch a single icecream item from DB (check video 10)!!!!!!!!!!!!!!
+
+
+
+###set up react front end and concurrently so we can rub server + clt at same time;
+
+-created a new react app in 'client' in the root directory;
+-CD client and started dev server (npm start);
+-created new scripts in 'scripts' object in the package.json in the root directory:
+
+   "client": "npm start --prefix client" (line 9 - --prefix client makes it so that the script 'client' runs in the client directory
+   "dev": "concurrently \"npm run server\" \"npm run client\"" (runs the server and the client concurrently
+-cd into root directory and run #npm run dev (starts both client and server);
+
+#npm run dev (Starts both) -this script is defined in the package.json in the root directory;
+
+
+
+
+keep from video 31 (from dependency installation redux/redux thunk/ etc... see if redux is indeed required for this simpel type of project)
+
+#it should not be
+
+
+
+
+
+
+
+Further improvements: 
+
+-add gravatar for pictures (see if can create collection with icecream pics and add them to the machine on the frontend);
