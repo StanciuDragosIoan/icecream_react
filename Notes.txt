@@ -137,9 +137,36 @@ library) react-moment;
 
 ########################keep from add icecream event (video 34)  simplify!
 
+##############################################Day 3
+-captured form state on submit event;
+-made post request in the database with form data using axios -without redux (video 35 MERN crs)
+-worked a bit more on the buyicecream component 
+#implemented redux
+
+NOTES ###
+the gist of redux -> in an app we can have 'component lvl state' (just like with the register icecream form, the data submitted there gets put in the component level state)
+there are also app level state (like for example authentication, profiles, posts) items that we want to be accessible from anywhere in the app (in our case the icecreams from
+the database are like that). Redux gives us app level state and it works like a 'cloud' that hovers over the app and we can make actions to it through events, and Redux 
+will share state (will make data fall down into any component). The data we get from the server (the total icecreams in our case) will be put in a 'store'. We fire off
+an action that fetches the data from the database and puts it in a store. From any component we can call an action that will do something (say we want to buy an icecream and
+update its quantity ---->so we make a request to the server, update the quantity on the server, we get a response and we want to update the UI). This will happen through
+a reducer that takes in an action. We can dispatch an action to the reducer and the reducer decides how to handle the state and how to pass it down to the components
+in the UI. It will update any components that use that piece of state. This prevents us from having to pass things around from component to component (as we'd have to
+without a state manager).
+
+So we basically call an action, dispatch it to a reducer (we might have multiple reducers) and the reducer decides what to do with the state (delete an icecream, update quantity, etc..)
+and then it will send that state down to any components that need it; It will send the state to any parent or child components (say we have the icecream store and the child nested
+icecream items components). ALl of this comes from the icecream store state (the ice cream types/quantities, etc...) so we want to get that state to 'rain down' from the 
+reducer
+
+say we have an icecream reducer that will handle everything to do with the icecream state. So, on every single load of the app component we want to hit the back end and
+check for the icecream items api/icecream endpoint and grab the icecream items in there and then components will react to that (the icecream store will update its state
+and its UI e.g. will display the correct icecream quantities)
+
+we may have an alert reducer as well;	
 
 
-
+ 
 
 
 Further improvements: 
