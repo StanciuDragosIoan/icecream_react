@@ -84,7 +84,7 @@ NOTE! if you need to modify the get route so we can fetch a single icecream item
 
 
 
-###set up react front end and concurrently so we can rub server + clt at same time;
+###set up react front end and concurrently so we can run server + clt at same time;
 
 -created a new react app in 'client' in the root directory;
 -CD client and started dev server (npm start);
@@ -101,12 +101,45 @@ NOTE! if you need to modify the get route so we can fetch a single icecream item
 
 keep from video 31 (from dependency installation redux/redux thunk/ etc... see if redux is indeed required for this simpel type of project)
 
-#it should not be
+ 
 
 
 
 
-##############
+##############################################Day 2
+
+###set up react and concurrently
+-installed into client axios, react-router-dom, redux react-redux redux-thunk (middleware for async requests) redux-devtools-extension (extra package) moment (date/time
+library) react-moment;	
+-set up a proxy in the package.json in the client (so that we can make http requests directly to the api routes without having to specify localhost..)
+
+
+
+### performed cleanup and defined initial components
+
+-removed logo svg, service worker, index css and app.test
+-made the app function into an arrow function and made it return a react fragment (a ghost element that does not show up in the DOM)
+-in the 'src' directory in the client created a "components" directory
+-in "components" created another folder called 'layout'
+-created Navbar.js in layout;
+-created Landing.js (for the landing page)
+-created Buyicecream.js
+
+### implemented react router
+-created Addicecream.js (to add new iceream varieties);
+-created Buyicecream.js (to buy icecream);
+
+
+-started working on the form in the Addicecream.js
+-created form state (each input needs to have its own state and they also need to have an onchange handler so state gets updated when we type in the field
+
+
+
+########################keep from add icecream event (video 34)  simplify!
+
+
+
+
 
 
 Further improvements: 
