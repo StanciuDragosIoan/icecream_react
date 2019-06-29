@@ -1,7 +1,13 @@
 import React, { Fragment, useState } from "react";
+import { connect } from "react-redux";
+import { setAlert } from "../../actions/alert";
+import { register } from "../../actions/icecream_actions";
+import PropTypes from "prop-types";
+
 // import axios from "axios";
 
-const Addicecream = () => {
+//destructure props so no need to call props.setAlert further down
+const Addicecream = ({ setAlert, register }) => {
   //use state hook
   const [formData, setFormData] = useState({
     flavour: "",
@@ -19,7 +25,8 @@ const Addicecream = () => {
     e.preventDefault();
 
     if (!flavour) {
-      console.log("There is an issue with the data...");
+      // console.log("There is an issue with the icecream data...");
+      setAlert("There is an issue with the icecream data...", "danger");
     } else {
       // // ###request without redux
       // const newIcecream = formData;
@@ -41,7 +48,8 @@ const Addicecream = () => {
       // } catch (err) {
       //   console.log(err.response.data);
       // }
-      console.log("Success");
+      // console.log("Success");
+      register({ flavour, price, description, quantity });
     }
   };
   return (
@@ -57,7 +65,6 @@ const Addicecream = () => {
               name="flavour"
               value={flavour}
               onChange={e => onChange(e)}
-              required
             />
           </div>
           <div className="form-group">
@@ -101,4 +108,12 @@ const Addicecream = () => {
   );
 };
 
-export default Addicecream;
+Addicecream.propTypes = {
+  setAlert: PropTypes.func.isRequired,
+  register: PropTypes.func.isRequired
+};
+
+export default connect(
+  null,
+  { setAlert, register }
+)(Addicecream);

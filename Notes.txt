@@ -141,7 +141,7 @@ library) react-moment;
 -captured form state on submit event;
 -made post request in the database with form data using axios -without redux (video 35 MERN crs)
 -worked a bit more on the buyicecream component 
-#implemented redux
+###prepared to implement redux
 
 NOTES ###
 the gist of redux -> in an app we can have 'component lvl state' (just like with the register icecream form, the data submitted there gets put in the component level state)
@@ -166,7 +166,74 @@ and its UI e.g. will display the correct icecream quantities)
 we may have an alert reducer as well;	
 
 
+
+###started implementing redux (thanks to having installed the redux extensions --> redux/ react-redux /redux-thunk /redux-devtools-extension,
+tge boiler plate setup will be a bit neater;
  
+-in the 'src' directory of 'client' created store.js;
+-added in it some imports : 
+
+// store and middleware use
+import { createStore, applyMiddleware } from "redux";
+//redux dev tools ext
+import { composeWithDevtools} from "redux-devtools-extension";
+//thunk middleware
+import thunk from "redux-thunk";
+// root reducer to combine multiple reducers (which will be combined into a single one)
+import rootReducer from "./reducers";
+
+*before the last import I created a folder called 'reducers' in the 'src' directory of 'client' and an index.js file inside of it;
+
+-set initial state in the store.js
+-bring in middleware
+-create the store  (called createStore() check store.js);
+-exported store;
+-surrounded the app with the Provider tag so that all the components can use the app level state;
+
+-in App.js imported a Provider (from the 'react-redux' package -->this package combines redux and react) and the store.js;
+
+
+in the index.js in the 'reducers' (src of client) I imported combineReducers from 'redux'; (so we can combine multiple reducers into one)
+-this is how Redux is implemented;
+
+
+###created an alert reducers (with action and an action type) -->video 38
+
+-created an alert.js inside the reducers folder in the client;
+-imported that file into the root reducer (index.js in 'reducers');
+-created a folder called 'actions' in the 'src' in the 'client' (this will hold the action files - here we make http requests for instance);
+-created a types.js file in the 'actions' directory (this will hold all our constant variables);
+-in the 'actions' directory created an alert.js file;
+
+-installed the UUID package (which will generate a random unique id --> #npm i uuid);
+-imported uuid in alert.js;
+
+
+###created the alert component and set the action call (video 39)
+
+-called the alert cation in the Addicecream.js component (instead of logging the alert messages we will display them in the UI);
+#first we need to connect the Addicecream.js component to redux (through connect from 'react-redux' package which we import in Addicecream.js);
+-imported connect from 'react-redux';
+-imported setAlert from actions;
+-created the Alert.js component into components/layout;
+-called the setAlert and set up the whole alert system (see in depth explanations in the video)
+
+###created the register icecream_reducer and the icecream action in the action files; (video 40)
+
+-created an icecream_reducer.js file in the reducers file (we'll make http requests here with axios);
+-added 2 more types to the types.js action file (register success and register fail);
+-created an icecream_actions file in the actions file (icecream_actions.js);
+-connected the actions to the component (Addicecream.js);
+
+
+
+########################keep from add icecream event (video 41)
+
+-need to make the icecream vending machine in the Buyicecream.js component, make a call to the back end, loop through all icecream items in there and display them
+in a grid inside of itself (will do that through an action from icecream_action file --check that-- which will be called through a reducer 
+
+#see how he does it in the MERN course + in other projects for the structure and setup;
+
 
 
 Further improvements: 
