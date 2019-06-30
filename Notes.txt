@@ -242,6 +242,15 @@ in the index.js in the 'reducers' (src of client) I imported combineReducers fro
 
 ########################keep from add icecream event (video 41)
 
+
+##############################################Day 5 (deployed app as it is -unfinished ) to Heroku;
+
+-log in to heroku;
+-will deploy using the heroku CLI;
+
+-click create new app;
+
+
 -need to make the icecream vending machine in the Buyicecream.js component, make a call to the back end, loop through all icecream items in there and display them
 in a grid inside of itself (will do that through an action from icecream_action file --check that-- which will be called through a reducer 
 

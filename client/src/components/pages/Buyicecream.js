@@ -7,11 +7,12 @@ const Buyicecream = () => {
         <h1 className="mt-5 text-center  mb-5">
           Buy your favourite icecream from below!
         </h1>
-        <div className="col-sm-8 mx-auto bg-danger">
+        <div className="col-sm-8 mx-auto">
           Vending Machine is here
           <div className="row">
             <div className="col-sm-12 col-md-4">
               <div className="card text-center mt-5 mb-5">
+                {/* <h5>Cherry</h5> */}
                 <h5>Cherry</h5>
                 <p>price: 5$</p>
                 <p>stock: 20 </p>

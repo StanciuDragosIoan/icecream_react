@@ -26,8 +26,12 @@ import {
 
 export const loadIcecreamItems = async () => {
   console.log("test");
+  // let iceCreamItems = {};
   try {
     const res = await axios.get("/api/icecream");
+
+    // iceCreamItems += res.data;
+    // console.log(iceCreamItems);
     console.log(res.data);
   } catch (err) {
     console.log(err.response.data);
