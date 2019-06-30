@@ -1,6 +1,38 @@
 import axios from "axios";
 import { setAlert } from "./alert";
-import { REGISTER_SUCCESS, REGISTER_FAIL } from "./types";
+import {
+  REGISTER_SUCCESS,
+  REGISTER_FAIL
+  // ICECREAM_LOADED,
+  // ICECREAM_ERROR
+} from "./types";
+
+//Load Icecream
+
+// export const loadIcecreamItems = () => async dispatch => {
+//   try {
+//     const res = await axios.get("/api/icecream");
+//     dispatch({
+//       type: ICECREAM_LOADED,
+//       payload: res.data
+//     });
+//   } catch (err) {
+//     dispatch({
+//       type: ICECREAM_ERROR
+//     });
+//   }
+//   console.log("test");
+// };
+
+export const loadIcecreamItems = async () => {
+  console.log("test");
+  try {
+    const res = await axios.get("/api/icecream");
+    console.log(res.data);
+  } catch (err) {
+    console.log(err.response.data);
+  }
+};
 
 //Register new icecream
 export const register = ({
@@ -11,7 +43,7 @@ export const register = ({
 }) => async dispatch => {
   //POST to bk-end for register icecream
 
-  //config object holds the http headers
+  //config object holds the http headers (set type)
   const config = {
     headers: {
       "Content-Type": "application/json"

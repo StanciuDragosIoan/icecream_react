@@ -6,7 +6,24 @@ const Icecream = require("../../models/Icecream");
 // @route GET api/icecream
 // @description Test route / Fetch ice cream items
 // @access Public
-router.get("/", (req, res) => res.send("Ice cream route..."));
+//router.get("/", (req, res) => res.send("Ice cream route..."));
+
+router.get("/", async (req, res) => {
+  try {
+    Icecream.find({}, function(err, users) {
+      var icecreamMap = {};
+
+      users.forEach(function(user) {
+        icecreamMap[user._id] = user;
+      });
+
+      res.send(icecreamMap);
+    });
+  } catch (err) {
+    res.status(500).send("Server Error");
+    console.log(err.response.data);
+  }
+});
 
 // @route POST api/icecream
 // @description Add new Icecream item

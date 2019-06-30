@@ -227,6 +227,19 @@ in the index.js in the 'reducers' (src of client) I imported combineReducers fro
 
 
 
+##############################################Day 4 (Load icecreams) - video 41
+
+-created  'ICECREAM_LOADED'  and 'ICECREAM_ERROR' action types in the types file;
+-created a loadIcecreamItems function in the icecream_actions.js (made get request to the API) 
+-set the function call in the icecream_reducer.js
+-called the function loadIcecreamItems function in the App.js
+-load icecream request fetches all icecream items from DB;
+
+-sometimes the server gives a 500 error (not clear why)
+-started working on the buy component logic (need to add state);
+
+
+
 ########################keep from add icecream event (video 41)
 
 -need to make the icecream vending machine in the Buyicecream.js component, make a call to the back end, loop through all icecream items in there and display them
